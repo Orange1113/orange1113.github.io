@@ -27,13 +27,14 @@
 	color: #333333;
 }
 
-.header .nav p {
+.header .nav b {
 	font-size: 16px;
 	color: #5e5e5e;
 	float: left;
 	margin: 0px;
 	padding: 10px;
+}
 
 .wrapper heather {
-		background-color: hsl(200, 100%, 50%);
-	}
+	background-color: hsl(200, 100%, 50%);
+}
