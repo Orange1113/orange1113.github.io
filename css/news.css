@@ -1,0 +1,22 @@
+.main {
+    padding: 20px;
+}
+
+#标题,#文章 {
+    color: #4d4f53;
+}
+
+#标题 {
+font-size: 1.9rem;
+line-height: 1.9rem;
+}
+
+#日期 {
+    color: #888;
+}
+
+#文章 {
+    font-size: 18px;
+    line-height: 1.5;
+    text-indent: 2em;
+}
