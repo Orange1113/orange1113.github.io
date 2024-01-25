@@ -1,0 +1,8 @@
+.main > a {
+    color: black;
+    text-decoration: none;
+}
+
+.main > a:hover {
+    text-decoration:dashed;
+}
