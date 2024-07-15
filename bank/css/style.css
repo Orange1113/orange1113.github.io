@@ -1,6 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	font-family: "Microsoft YaHei", "微软雅黑", "Tahoma", "PingFang", "苹方", "黑体-简","Helvetica", sans-serif;
 }
 
 a {
@@ -42,10 +43,43 @@ header nav ul {
 	float: right;
 }
 
+header nav .menu_bar {
+	display: inline;
+	float: right;
+}
 
+.menu_bar li ul{
+	width: 100px;
+	margin-left: -60px;
+	background-color: #fff;
+	display: none;
+	position: absolute;
+	border-radius: 10px;
+	border: #ccc 1px solid;
+}
+
+.menu_bar li:hover ul{
+	display: block;
+}
 
 header nav a:hover {
 	color: #333;
+}
+
+.menu_bar ul li {
+	width: 80px;
+}
+
+.menu_bar li ul li:hover {
+	background-color: #ddd;
+}
+
+.menu_bar li ul li:first-child {
+	border-radius: 10px 10px 0 0;
+}
+
+.menu_bar li ul li:last-child {
+	border-radius: 0 0 10px 10px;
 }
 
 main {
@@ -63,7 +97,12 @@ main {
 	margin: 10px;
 }
 
-.box h3 {
+.box h1,
+.box h2,
+.box h3,
+.box h4,
+.box h5,
+.box h6 {
 	margin: 10px;
 }
 
@@ -83,7 +122,6 @@ footer * {
 	font-size: 12px;
 }
 
-
 .container {
     padding: 5px;
     display: flex;
@@ -98,7 +136,7 @@ footer * {
 
 .item {
     border-radius: 10px;
-    min-width: 400px;
+	min-width: 400px;
     height: 300px;
     background-color: #114514;
     margin-right: 10px;
@@ -109,12 +147,26 @@ footer * {
     color: #fff;
 } 
 
-.item:last-child {
-    margin-right: 0;
-}
-
 .button {
     float: right;
     color: coral !important;
     margin: 10px 20px;
+}
+
+@media screen and (max-width: 500px) {
+    .item {
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+	header nav .navigation_bar {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 641px) {
+	header nav .menu_bar {
+		display: none;
+	}
 }
