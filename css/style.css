@@ -23,7 +23,6 @@ header nav {
 	max-width: 990px;
 	padding: 2px 50px 0;
 	margin: auto;
-	background-image: url("logo.png");
 }
 
 header nav a {
@@ -92,8 +91,4 @@ footer * {
 	text-align: center;
 	color: #5e5e5e;
 	font-size: 12px;
-}
-
-.github {
-	font-size: 24px;
 }
