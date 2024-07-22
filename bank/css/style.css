@@ -38,9 +38,30 @@ header nav ul {
 	list-style-type: none;
 	font-size: 16px;
 	color: #787878;
-    /* float: left; */
+    float: left;
     /* margin-left: 10px; */
+}
+
+header nav .login,
+header nav .register {
+	margin-top: 3px;
 	float: right;
+}
+
+header nav .login button {
+	padding: 4px 14px;
+	border: #f68b39 1.5px solid;
+	background-color: #fff;
+	border-radius: 5px;
+	margin-right: 5px;
+}
+
+header nav .register button {
+	padding: 4px 14px;
+	background-color: #f68b39;
+	color: #fff;
+	border-radius: 5px;
+	margin-right: 5px;
 }
 
 header nav .menu_bar {
@@ -120,13 +141,13 @@ footer * {
 }
 
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 780px) {
 	header nav .navigation_bar {
 		display: none;
 	}
 }
 
-@media screen and (min-width: 641px) {
+@media screen and (min-width: 781px) {
 	header nav .menu_bar {
 		display: none;
 	}
