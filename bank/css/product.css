@@ -1,11 +1,11 @@
 .container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: 32% 32% 32%; 
     grid-gap: 10px;
+    margin: 0 auto;
 }
 
 .item {
-    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 310px));
     grid-gap: 10px;
     width: auto;
@@ -14,6 +14,10 @@
     background-color: #f5f5f5; 
     padding: 10px;
     border-radius: 15px;
+}
+
+.item > * {
+    margin-bottom: 5px;
 }
 
 .item img {
@@ -41,14 +45,8 @@
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
     .container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 48% 48%;
     }
-}
-
-@media screen and (max-width: 300px) {
-    .container {
-        grid-template-columns: repeat(1, 1fr);
-    }  
 }

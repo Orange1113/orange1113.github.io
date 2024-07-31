@@ -12,38 +12,7 @@
 </head>
 
 <body>
-    <header>
-		<nav>
-			<a href="./"><img src="../img/logo.svg" alt="有想法的橙子" height="100%" style="float: left !important; margin-right: 10px;"></a>
-            
-			<ul class="navigation_bar">
-				<li><a href="./">首页</a></li>
-                <li><a href="product.html">产品</a></li>
-				<li><a href="#">关于我们</a></li>
-				<li><a href="#">新闻中心</a></li>
-				<li><a href="#">帮助中心</a></li>
-			</ul>
-            <span class="login navigation_bar">
-                <a href="../login.html" class="login"><button>登录</button></a>
-                <a href="../register.html" class="register"><button>注册</button></a>
-            </span>
-
-
-            <ul class="menu_bar">
-                <li style="padding: 0;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M10 12.5C10 11.6703 10.6703 11 11.5 11L29.5 11C30.3297 11 31 11.6703 31 12.5C31 13.3297 30.3297 14 29.5 14L11.5 14C10.6703 14 10 13.3297 10 12.5ZM10 20C10 19.1703 10.6703 18.5 11.5 18.5L29.5 18.5C30.3297 18.5 31 19.1703 31 20C31 20.8297 30.3297 21.5 29.5 21.5L11.5 21.5C10.6703 21.5 10 20.8297 10 20ZM31 27.5C31 28.3297 30.3297 29 29.5 29L11.5 29C10.6703 29 10 28.3297 10 27.5C10 26.6703 10.6703 26 11.5 26L29.5 26C30.3297 26 31 26.6703 31 27.5Z" fill="#1D2129" ></path></svg>
-                    <ul>
-                        <li><a href="./">首页</a></li>
-                        <li><a href="product.html">产品</a></li>
-                        <li><a href="#">关于我们</a></li>
-                        <li><a href="#">新闻中心</a></li>
-                        <li><a href="#">帮助中心</a></li>
-                        <li><a href="../login.html">登录</a></li>
-                        <li><a href="../register.html">注册</a></li>
-                    </ul>
-                </li>            
-            </ul>
-		</nav>
-	</header>
+    <header><nav id="nav"></nav></header>
 
 	<main>
         <div class="box" style="background-color:#fff;">
@@ -54,9 +23,9 @@
             <h3>产品</h3>
             <p>橙子银行提供各种产品，包括电脑、手机、纸盒等。</p>
             <div class="container">
-                <div class="item">电脑</div>
                 <div class="item" style="background-image: url('img/phone.png');"></div>
-                <div class="item" style="background-image: url('img/box.png'); margin: 0;"></div>
+                <div class="item" style="background-image: url('img/box.png');"></div>
+                <div class="item" style="background-image: url('img/BakeComputer.png');"></div>
             </div>
             <a href="product.html" class="button">了解更多 >></a>
             <p></p>
@@ -67,9 +36,8 @@
         </div>
 	</main>
 
-	<footer>
-		<p>&copy; 2024 有想法的橙子</p>
-	</footer>
+	<footer id="footer"></footer>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

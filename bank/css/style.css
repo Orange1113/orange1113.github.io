@@ -140,6 +140,12 @@ footer * {
 	font-size: 12px;
 }
 
+.logo {
+	float: left; 
+	margin-left: 10px; 
+	height: 100%;
+}
+
 
 @media screen and (max-width: 780px) {
 	header nav .navigation_bar {

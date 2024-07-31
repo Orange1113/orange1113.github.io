@@ -14,12 +14,8 @@
     border-radius: 10px;
     height: 300px;
 	min-width: 300px;
-    background-color: #114514;
     margin-right: 10px;
     scroll-snap-align: center;
-    font-size: 20px;
-    line-height: 300px;
-    text-align: center;
     color: #fff;
     background-size: cover;
 } 

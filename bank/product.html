@@ -1,3 +1,11 @@
+<!--
+ * @Author: Orange1113 sh_wjc_2013@126.com
+ * @Date: 2024-07-15 18:19:43
+ * @LastEditors: Orange1113 sh_wjc_2013@126.com
+ * @LastEditTime: 2024-07-31 16:21:21
+ * @FilePath: \orange1113.github.io\bank\product.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -9,37 +17,20 @@
 </head>
 <body> 
     
-    <header>
-		<nav>
-			<a href="./" class="logo"><img src="../img/logo.svg" alt="有想法的橙子" height="100%"></a>
-            
-			<ul class="navigation_bar">
-				<li><a href="./">首页</a></li>
-                <li><a href="product.html">产品</a></li>
-				<li><a href="#">关于我们</a></li>
-				<li><a href="#">新闻中心</a></li>
-				<li><a href="#">帮助中心</a></li>
-			</ul>
-
-            <ul class="menu_bar">
-                <li><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M10 12.5C10 11.6703 10.6703 11 11.5 11L29.5 11C30.3297 11 31 11.6703 31 12.5C31 13.3297 30.3297 14 29.5 14L11.5 14C10.6703 14 10 13.3297 10 12.5ZM10 20C10 19.1703 10.6703 18.5 11.5 18.5L29.5 18.5C30.3297 18.5 31 19.1703 31 20C31 20.8297 30.3297 21.5 29.5 21.5L11.5 21.5C10.6703 21.5 10 20.8297 10 20ZM31 27.5C31 28.3297 30.3297 29 29.5 29L11.5 29C10.6703 29 10 28.3297 10 27.5C10 26.6703 10.6703 26 11.5 26L29.5 26C30.3297 26 31 26.6703 31 27.5Z" fill="#1D2129" ></path></svg>
-                    <ul>
-                        <li><a href="./">首页</a></li>
-                        <li><a href="product.html">产品</a></li>
-                        <li><a href="#">关于我们</a></li>
-                        <li><a href="#">新闻中心</a></li>
-                        <li><a href="#">帮助中心</a></li>
-                    </ul>
-                </li>            
-            </ul>
-		</nav>
-	</header>
+    <header><nav id="nav"></nav></header>
 
 	<main>
         <div class="box" style="background-color:#fff;">
             <h1>产品</h1>
         </div>
         <div class="container">
+            <a href="https://www.bilibili.com/video/BV1GJ411x7h7/">
+                <div class="item">
+                    <img src="img/BakeComputer.png" alt="烤电脑">
+                    <p class="info">烤电脑</p>
+                    <p class="price">9999</p>
+                </div>
+            </a>
             <a href="https://www.bilibili.com/video/BV1GJ411x7h7/">
                 <div class="item">
                     <img src="img/phone.png" alt="手机">
@@ -50,14 +41,13 @@
             <a href="https://www.bilibili.com/video/BV1GJ411x7h7/">
                 <div class="item">
                     <img src="img/box.png" alt="盒子">
-                    <p class="info">力巴尔的小店 - 盒子</p>
+                    <p class="info">盒子</p>
                     <p class="price">10</p>
                 </div>
             </a>
     </main>
 
-	<footer>
-		<p>&copy; 2024 有想法的橙子</p>
-	</footer>
+	<footer id="footer"></footer>
+    <script src="js/script.js"></script>
 </body>
 </html>
