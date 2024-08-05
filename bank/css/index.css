@@ -1,9 +1,11 @@
+@import url('color.css');
+
 .container {
     padding: 5px;
     display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
-    border: #ccc 2px solid;
+    border: var(--border-color) 2px solid;
     width: 95%;
     border-radius: 10px;
     margin: 0 auto;
@@ -16,12 +18,11 @@
 	min-width: 300px;
     margin-right: 10px;
     scroll-snap-align: center;
-    color: #fff;
     background-size: cover;
 } 
 
 .button {
     float: right;
-    color: coral !important;
+    color: var(--theme-color) !important;
     margin: 10px 20px;
 }
