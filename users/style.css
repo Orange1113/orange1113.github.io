@@ -114,3 +114,12 @@ body {
         border-radius: 0;
     }   
 }
+
+@media screen and (max-height: 420px) {
+    .box {
+        min-width: 100vw;
+        min-height: 100vh;
+        border: none;
+        border-radius: 0;
+    }   
+}

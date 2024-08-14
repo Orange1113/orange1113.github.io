@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form class="box" id="box" style="height: 400px;">
+    <form class="box" id="box" style="height: 400px;" action="next.html">
         <h2>注册</h2>
         <div class="input-box">
             <label>用户名</label>
-            <input type="text" id="username">
+            <input type="text" id="username" name="username">
         </div>
         <div class="input-box">
             <label>密码</label>
-            <input type="password" id="password">
+            <input type="password" id="password" name="password">
         </div>
         <div class="input-box">
             <label>确认密码</label>
@@ -24,11 +24,11 @@
         </div>
         <div id="resultMessage"></div>
         <div class="btn-box">
-            <button type="submit">注册</button>
+            <button type="submit">下一步 →</button>
         </div>
     </form>
 
-    <script type="text/javascript">
+    <script>    
         document.getElementById('box').addEventListener('submit', async (e) => {
             e.preventDefault();
 
@@ -48,44 +48,8 @@
                 document.getElementById('resultMessage').innerHTML = '密码长度不能小于6位';
                 return;
             }
-            else {
-                document.getElementById('resultMessage').innerHTML = '正在注册...';
-
-                const url = 'http://cn-hk-bgp-4.ofalias.net:21846/register';  // cn-hk-bgp-4.ofalias.net:21846
-
-                // try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: {
-                        'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({'username': username, 'password': password}),
-                    });
-
-                    if (response.ok) {
-                        document.getElementById('resultMessage').innerHTML = '注册成功';
-
-                    //     // 获取用户数据
-                    //     const info = await response.json();
-                    //     const user_data = await info['user_data'];
-
-                    //     // 设置 Cookie
-                    //     document.cookie = `id=${user_data['id']}`;
-                    //     document.cookie = `username=${username}`;
-                    //     document.cookie = `password=${user_data[password]}`;
-                    //     document.cookie = `money=${user_data['money']}`;
-                    //     document.cookie = `avatar=${user_data['avatar']}`;                
-                        window.location.href = '/';
-                    } 
-                    else {
-                        // 注册失败，显示错误信息
-                        const errorData = await response.json();
-                        document.getElementById('resultMessage').innerHTML = errorData.message; 
-                    }
-                // } 
-                // catch (error) {
-                //     document.getElementById('resultMessage').innerHTML = '服务器开小差了，请稍后重试';
-                // }
+            else { 
+                window.location.href = `next.html?username=${username}&password=${password}`
             }
         });
     </script>
