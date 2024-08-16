@@ -1,0 +1,12 @@
+@import url(main.css);
+
+header {
+	width: 100%;
+	/* background-color: rgba(255, 255, 255, .7); */
+	/* backdrop-filter: blur(50px); */
+	background-color: var(--);
+	border-bottom: 1px #aaa solid;
+	position: fixed;
+	top: 0;
+	height: 50px;
+}

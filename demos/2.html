@@ -1,0 +1,36 @@
+<script>
+    function checkIEVersion() {
+    const userAgent = navigator.userAgent;
+    const isIE = userAgent.includes("compatible") && userAgent.includes("MSIE");
+    const isEdge = userAgent.includes("Edge") &&!isIE;
+    const isIE11 = userAgent.includes('Trident') && userAgent.includes("rv:11.0");
+
+    if (isIE) {
+        const reIE = /MSIE (\d+\.\d+);/;
+        const match = userAgent.match(reIE);
+        if (match) {
+            const fIEVersion = parseFloat(match[1]);
+            return fIEVersion <= 10;
+        } else {
+            return true; // 处理无法解析版本的情况，这里假设是低版本 IE
+        }
+    } else if (isEdge) {
+        return false;
+    } else if (isIE11) {
+        return true;
+    } else {
+        return false;
+    }
+    }
+
+    if (checkIEVersion()) {
+        alert("您的浏览器版本过低，请升级浏览器");
+        console.log("您的浏览器版本过低，请升级浏览器");
+        
+    }
+    else {
+        console.log("您的浏览器版本正常");
+        
+    }
+
+</script>
