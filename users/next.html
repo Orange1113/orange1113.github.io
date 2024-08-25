@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>注册 - 有想法的橙子</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fakeCAPTCHA/fakeCAPTCHA.css">
+    <script src="fakeCAPTCHA/fakeCAPTCHA.js"></script>
 
     <style>
         .tip {
@@ -100,17 +102,9 @@
 <body>
     <form class="box" id="box" style="height: 400px;" action="">
         <h2>注册</h2>
-        <div class="input-box">
-            <label>用户名</label>
-            <input type="text" id="username" readonly>
-        </div>
-        <div class="input-box">
-            <label>密码</label>
-            <input type="password" id="password" readonly>
-        </div>
         <p class="tip">为了您的安全，请创建六位数的数字支付密码</p>
         <div class="wrap-in">
-            <input type="tel" maxlength="6" class="topInput">
+            <input type="tel" maxlength="6" class="topInput" id="topInput">
             <div class="bottomInputs">
                 <div>
                     <span class="cursor">|</span>
@@ -138,6 +132,19 @@
                 </div>
             </div>
         </div>
+        <div id="captcha" style="max-width: 210px;"></div>
+        <script>
+            var config = {
+                element: "#captcha",
+                textBefore: "我不是机器人",
+                textDuring: "正在验证…",
+                textAfter: "已通过验证",
+                duration: 1000,
+                success: true,
+                dark: false
+            };
+            captcha = new CAPTCHA(config);
+        </script>
         <div id="resultMessage"></div>
         <div class="btn-box">
             <button type="submit" style="margin-top: 5px;">注册</button>
@@ -209,11 +216,8 @@
 <script>
     const urlParams = new URLSearchParams(window.location.search);
 
-    const nameValue = urlParams.get('username');
-    document.getElementById('username').value = nameValue;
-
-    const pwdValue = urlParams.get('password');
-    document.getElementById('password').value = pwdValue;
+    const username = urlParams.get('username');
+    const password = urlParams.get('password');
 </script>
 
 <script>
@@ -222,11 +226,20 @@
 
             document.getElementById('resultMessage').innerHTML = '正在注册...';
 
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
             localStorage.setItem('username', username);
             localStorage.setItem('password', password);
+            
+
+            // 判断密码是否输入(topinput)
+            if (topInput.value.length !== 6) {
+                document.getElementById('resultMessage').innerHTML = '请输入支付密码';
+                return;
+            } else if (!captcha.checked) {
+                document.getElementById('resultMessage').innerHTML = '请通过人机验证';
+                return;
+            }
+
+
 
             document.getElementById('resultMessage').innerHTML = '注册成功';
 
