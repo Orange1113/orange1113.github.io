@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0; /* 去除默认的 body 边距 */
+        }
+        #loading {
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* 确保 body 占满整个视口高度，这一步很关键，如果 body 默认没有高度的话，Flex 布局的居中效果可能无法正确显示 */
+        }
+
+        #loading .container {
+            width: 3.25em;
+            transform-origin: center;
+            animation: rotate4 2s linear infinite;
+        }
+    
+        #loading .loader {
+            fill: none;
+            stroke: #106ee8;
+            stroke-width: 5;
+            stroke-dasharray: 2, 200;
+            stroke-dashoffset: 0;
+            stroke-linecap: round;
+            animation: dash4 1.5s ease-in-out infinite;
+        }
+    
+        @keyframes rotate4 {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    
+        @keyframes dash4 {
+            0% {
+                stroke-dasharray: 1, 200;
+                stroke-dashoffset: 0;
+            }
+    
+            50% {
+                stroke-dasharray: 90, 200;
+                stroke-dashoffset: -35px;
+            }
+    
+            100% {
+                stroke-dashoffset: -125px;
+            }
+        }
+    </style>
+    <title>⚪</title>
+</head>
+<body>
+    
+<div id="loading">
+    <svg viewBox="25 25 50 50" class="container">
+        <circle cx="50" cy="50" r="20" class="loader"></circle>
+    </svg>
+</div>
+<script>
+    document.onreadystatechange = function() {
+        if (document.readyState === "complete") {
+            document.getElementById("loading").style.display = "none";
+        }
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <input type="file" id="fileInput">
+  <button onclick="uploadImage()">上传</button>
+  <script>
+    function uploadImage() {
+      const fileInput = document.getElementById('fileInput');
+      const file = fileInput.files[0];
+      if (!file) {
+        console.log('请选择文件');
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('smfile', file);
+
+      const headers = {
+        'Authorization': 'cMZkqPKLXfroLwwGBqpYtunwkKm6BvUp'
+      };
+
+      console.log('开始上传');
+      
+      fetch('https://sm.ms/api/v2/upload', {
+          method: 'POST',
+          headers: headers,
+          body: formData
+        })
+       .then(response => response.json())
+       .then(data => {
+          if (data.data && data.data.url) {
+            console.log(data.data.url);
+          } else {
+            console.log('上传失败或 API 返回格式不正确');
+          }
+        })
+       .catch(error => {
+          console.log('上传过程中出现错误：', error);
+        });
+    }
+  </script>
+</body>
+
+</html>

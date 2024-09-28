@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>有想法的橙子</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f5;
+            margin: 0;
+            padding: 0;
+        }
+        .nav {
+            background-color: #fff;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: rgba(0, 0, 0, 0.1) solid 1px;
+        }
+        .nav .options {
+            display: flex;
+            gap: 15px;
+        }
+        .content {
+            display: flex;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 40px auto 0; /* 调整顶部边距以避免被导航栏遮挡 */
+        }
+        .main {
+            flex: 3;
+            margin-right: 10px;
+        }
+        .sidebar {
+            flex: 1;
+        }
+        .post {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 15px;
+        }
+        .post .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .post .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: calc(100% - 80px);
+        }
+        .post .user-info img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+        .post .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .post .text {
+            padding-left: 50px;
+        }
+        .sidebar {
+            background-color: white;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            height: 100px;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            color: #777;
+        }
+        .follow-btn {
+            color: rgb(255, 130, 0); border: 1px solid #FF8200; border-radius: 999px; padding: 5px 15px; background-color: white;
+        }
+        .follow-btn:hover {
+            background-color: rgba(255, 130, 0, .1)
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div><strong>Logo</strong></div>
+        <div class="options">
+            <div>选项</div>
+            <div>选项</div>
+            <div>选项</div>
+            <div>选项</div>
+            <div>选项</div>
+            <div>选项</div>
+        </div>
+        <div><strong>头像</strong></div>
+    </div>
+    <div class="content">
+        <div class="main" id="postContainer"></div>
+        <div class="sidebar">
+            <div>热门话题</div>
+        </div>
+    </div>
+    <div class="footer">
+        © 2024 有想法的橙子. All rights reserved.
+    </div>
+    <script>
+        // 定义一个函数用于渲染帖子
+        function renderPosts(posts) {
+            const postContainer = document.getElementById('postContainer');
+            posts.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.className = 'post';
+                
+                // 计算相对日期
+                const postTime = new Date(post.time);
+                const now = new Date();
+                const diff = now - postTime;
+                const seconds = Math.floor(diff / 1000);
+                const minutes = Math.floor(seconds / 60);
+                const hours = Math.floor(minutes / 60);
+                const days = Math.floor(hours / 24);
+                const months = Math.floor(days / 30);
+                const years = Math.floor(months / 12);
+
+                let relativeTime;
+                if (years > 0) {
+                    relativeTime = `${years}年前`;
+                } else if (months > 0) {
+                    relativeTime = `${months}个月前`;
+                } else if (days > 0) {
+                    relativeTime = `${days}天前`;
+                } else if (hours > 0) {
+                    relativeTime = `${hours}小时前`;
+                } else if (minutes > 0) {
+                    relativeTime = `${minutes}分钟前`;
+                } else {
+                    relativeTime = '刚刚';
+                }
+
+                postElement.innerHTML = `
+                    <div class="header">
+                        <div class="user-info">
+                            <img src="${post.avatar}" alt="用户">
+                            <div style='width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;'>${post.username}<br><span style="font-size: 13px; color: #999;">${relativeTime}</div>
+                        </div>
+                        <button class="follow-btn">+关注</button>
+                    </div>
+                    <div class="text">${post.content}</div>
+                    <div class="buttons">
+                        <button>点赞</button>
+                        <button>评论</button>
+                        <button>转发</button>
+                    </div>
+                `;
+                
+                postContainer.appendChild(postElement);
+            });
+        }
+
+        // 尝试从服务器获取 JSON 数据
+        fetch('https://example.com/api/posts') // 替换为你的实际 API 地址
+        .then(response => response.json())
+        .then(data => {
+                // 如果成功获取到服务器数据，渲染服务器数据
+                renderPosts(data);
+            })
+        .catch(error => {
+                // 如果获取数据出错，使用默认的静态数据并渲染
+                console.error('获取数据时出错:', error);
+                const posts = [
+                    {
+                        "username": "吴景澄",
+                        "time": "2024-07-10 12:30:00",
+                        "content": "鸡对你大笑,<br>你干嘛,<br>哪里蹲,<br>我是谁？",
+                        "avatar": "32.png"
+                    },
+                    {
+                        "username": "小鹿",
+                        "time": "2024-07-07 15:45:00",
+                        "content": "用户分享内容到社交媒体或好友，不应该是一种粗暴的强制行为...",
+                        "avatar": "32.png"
+                    },
+                    {
+                        "username": "张三",
+                        "time": "2024-06-20 09:15:00",
+                        "content": "例子内容，可以随便填些文本...",
+                        "avatar": "32.png"
+                    },
+                    {
+                        "username": "李子君",
+                        "time": "2023-05-21 18:20:00",
+                        "content": "又一个例子内容来填充数据库...",
+                        "avatar": "32.png"
+                    },
+                    {   
+                        "time": "2022-04-15 12:00:00",
+                        "content": "例子内容，可以随便填些文本...",
+                        "avatar": "32.png",
+                        "username": "xxx"
+                    }
+                ];
+                renderPosts(posts);
+            });
+    </script>
+</body>
+</html>
